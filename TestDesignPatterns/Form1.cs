@@ -41,8 +41,9 @@ namespace TestDesignPatterns
 
         private void btnTestProgramToInterfaces_Click(object sender, EventArgs e)
         {
-            ITestInterface1 i; // program to interfaces (not to implementations)
-
+            ITestInterface1 i; // program to interfaces (do not program to concrete implementations)
+            // Programming to an interface allows a program to dynamically change the method logic at run time.
+            
             i = new Class1(); // since Class1 implements ITestInterface1, so Class1 "is a" ITestInterface1.
             i.DoSomething();
 

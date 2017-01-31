@@ -32,6 +32,9 @@ namespace TestDesignPatterns
 
     #region The Subject
 
+    /// <summary>
+    /// This class maintains a list of observers. Add and remove observers. Notify observers when there is a change.
+    /// </summary>
     public class WeatherData : ISubject
     {
         private decimal _temperature;
@@ -144,18 +147,6 @@ namespace TestDesignPatterns
 
     #endregion
     
-
-
-    #region
-    #endregion
-
-
-
-    #region
-    #endregion
-
-
-
 
 
     class ObserverPattern
