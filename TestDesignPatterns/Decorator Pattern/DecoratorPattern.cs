@@ -15,22 +15,24 @@ namespace TestDesignPatterns
     {
         protected string description = "Unknow Beverage";
 
-        public virtual string GetDescription() // virtual = can be overridden
+        public virtual string GetDescription() // method can be overwritten by the subclass
         {
             return description;
         }
 
-        public abstract decimal cost();
+        public abstract decimal cost(); // method must be implemented by the subclass
     }
 
     #endregion 
 
-    #region the abstract decorator (it is still the same type as the component)
+    #region abstract decorator (it is still the same type as the component)
 
     public abstract class CondimentDecorator : Beverage // we need this decorator to be interchangeable with a Beverage, so we inherit from the Beverage class.
     {
         // we need a new CondimentDecorator class instead of just using the Beverage class in the decorator because
         // we can implement some common behaviors across all Condiments.
+        // But I do not personally like this class because this class says CondimentDecorator is a Beverage.
+        // CondimentDecorator is NOT a Beverage.
 
         //public abstract new string GetDescription();
     }
@@ -69,9 +71,15 @@ namespace TestDesignPatterns
 
     #endregion
 
-    #region subclasses (the decorators = the condiments)
+    #region subclasses (the condiments are decorators)
 
-    // this is an example of a decorator
+    // A decorator must retain the same type component type (superclass)
+    // A decorator constructor must take a concrete subclass and store it
+    // A decorator implements superclass methods by using the stored concrete subclass, add something, then return. Still using the same original method names
+    // A decorator does not add new methods
+    // A decorator usually not completely replacing an old function. But to add more to the existing functions.
+
+    
     public class Mocha : CondimentDecorator
     {
         // private variables
